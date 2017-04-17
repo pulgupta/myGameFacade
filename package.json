@@ -1,0 +1,26 @@
+{
+  "name": "mygamefacade",
+  "version": "1.0.0",
+  "description": "The frontend code for my game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulgupta/myGameFacade.git"
+  },
+  "keywords": [
+    "Angular",
+    "game",
+    "frontend",
+    "handson",
+    "practice"
+  ],
+  "author": "pulgupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pulgupta/myGameFacade/issues"
+  },
+  "homepage": "https://github.com/pulgupta/myGameFacade#readme"
+}
