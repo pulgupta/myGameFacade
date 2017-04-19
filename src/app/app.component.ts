@@ -4,8 +4,9 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
+    <vote>Vote Goes Here</vote>
   `
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'Our Team Maclaren\'s Pub';
 }
