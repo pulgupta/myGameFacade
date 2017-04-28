@@ -1,8 +1,10 @@
+//This class contains the details of the poll for a particular team.
+//This is all based on the questionId which will link these to a particular question
 export class voteRecord {
     constructor (
-        public teamName: string,
         public questionId: number,
+        public teamName: string,
         public teammates: string[],
-        public voteCasted: string[],
+        public voteCasted: Map<string, string>,
     ){}
 }

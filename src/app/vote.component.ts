@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
-
-import { voteRecord } from './voteRecord';
+import { Component , Input} from '@angular/core';
+import { voteQuestion } from './voteQuestion';
 
 @Component({
   selector: 'vote',
   templateUrl: './vote.component.html'
 })
 export class VoteComponent {
+  
   title = 'Lets put that to vote';
-  team = ['Ak','PG','RW','JS','JO','RC'];
-  votes = ['','','','','',''];
-  record = new voteRecord('McLaren', 1, this.team, this.votes );
+  model = new voteQuestion(1, '', '','', 1, 1);
+
   submitted = false;
-  onSubmit() { this.submitted = true; }
+
+  onSubmit() { this.submitted = true; 
+  console.log('form submitted')}
+
   // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.record); }
+  get diagnostic() { return JSON.stringify(this.model);}
+
 }
