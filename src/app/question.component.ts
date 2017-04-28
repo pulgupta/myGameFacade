@@ -7,7 +7,6 @@ import { Question } from './Question';
 })
 export class QuestionComponent {
   
-  title = 'Lets put that to vote';
   model = new Question(1, 'Enter your question details here', 
     'Enter coma seperated option',null,'', 1, 1);
 

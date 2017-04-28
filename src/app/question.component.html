@@ -1,8 +1,7 @@
-<h2>{{ title }}</h2>
+
 <br/>
 
 <div class="container">
-    <h1>Voters Form</h1>
     <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
     <form (ngSubmit)="onSubmit()" #questionForm="ngForm">
       <div class="form-group">
@@ -10,15 +9,15 @@
         <br/>
         <textarea rows="8" cols="50" class="form-control" id="question" required
         [(ngModel)]="model.question" name="question"></textarea>
-        TODO: remove this: {{model.question}}
       </div>
+      <br/>
       <div class="addcontend">
         <label for="optionsFull">Enter Options(comma seperated)</label><br/>
         <input type="text" class="form-control" id="optionsFull"
         [(ngModel)]="model.optionsFull" name="optionsFull">
-        TODO: remove this: {{model.optionsFull}}
+        
       </div>
-      
+      <br/>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>

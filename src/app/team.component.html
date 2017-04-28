@@ -1,8 +1,6 @@
-<h2>{{ title }}</h2>
 <br/>
 
 <div class="container">
-    <h1>Voters Form</h1>
     <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
     <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
       <div class="form-group">
@@ -10,15 +8,14 @@
         <br/>
         <input type="text" class="form-control" id="teamName"
         [(ngModel)]="model.teamName" name="teamName">
-        TODO: remove this: {{model.teamName}}
       </div>
+      <br/>
       <div class="addcontend">
         <label for="optionsFull">Enter members(comma seperated)</label><br/>
         <input type="text" class="form-control" id="teammatesFull"
         [(ngModel)]="model.teammatesFull" name="teammatesFull">
-        TODO: remove this: {{model.teammatesFull}}
       </div>
-      
+      <br/>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>

@@ -7,7 +7,6 @@ import { Team } from './Team';
 })
 export class TeamComponent {
   
-  title = 'Lets put that to vote';
   model = new Team('', 'Enter team name', 
     'Enter coma team members',null);
 
