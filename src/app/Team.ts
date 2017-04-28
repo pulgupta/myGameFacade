@@ -4,6 +4,7 @@ export class Team {
     constructor (
         public teamId: string,
         public teamName: string,
-        public teammates: string[],
+        public teammatesFull: string,
+        public teammates: string[]
     ){}
 }

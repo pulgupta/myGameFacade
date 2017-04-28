@@ -5,6 +5,7 @@ import { RouterModule }   from '@angular/router';
 
 import { AppComponent }   from './app.component';
 import { QuestionComponent }   from './question.component';
+import { TeamComponent } from './team.component'
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { QuestionComponent }   from './question.component';
   declarations: [
     AppComponent,
     QuestionComponent,
+    TeamComponent
   ],
   bootstrap: [ AppComponent ] 
 })

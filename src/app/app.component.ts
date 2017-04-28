@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <h1>{{title}}</h1>
     <question>Vote Goes Here</question>
+    <team>Team Goes Here</team>
   `
 })
 export class AppComponent {
