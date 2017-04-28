@@ -1,6 +1,6 @@
 //This class contains the question record
 //Each question will be linked to the voteRecord which will contain the vote patterns
-export class VoteQuestion {
+export class Question {
     constructor (
         public questionId: number,
         public question: string,
@@ -8,6 +8,7 @@ export class VoteQuestion {
         public options: string[],
         public tags: string,
         public date: number,
-        public ownerId: number 
+        public ownerId: number //This will be the teamId to which this question is assigned.
+        //^^^^ we can keep the name as teamId also but we may need sometimes when the owner is not a team
     ){}
 }

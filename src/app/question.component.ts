@@ -1,14 +1,14 @@
 import { Component , Input} from '@angular/core';
-import { VoteQuestion } from './voteQuestion';
+import { Question } from './Question';
 
 @Component({
-  selector: 'vote',
-  templateUrl: './vote.component.html'
+  selector: 'question',
+  templateUrl: './question.component.html'
 })
-export class VoteComponent {
+export class QuestionComponent {
   
   title = 'Lets put that to vote';
-  model = new VoteQuestion(1, 'Enter your question details here', 
+  model = new Question(1, 'Enter your question details here', 
     'Enter coma seperated option',null,'', 1, 1);
 
   submitted = false;
