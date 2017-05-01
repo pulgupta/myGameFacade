@@ -6,7 +6,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent }   from './app.component';
 import { QuestionComponent }   from './question.component';
-import { TeamComponent } from './team.component'
+import { TeamComponent } from './team.component';
+import { QuestionService } from './question.service';
+import { Configuration } from './configuration';
 
 const appRoutes: Routes = [
   { path: 'question', component: QuestionComponent },
@@ -19,6 +21,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)
+  ],
+  providers: [ 
+    QuestionService,
+    Configuration 
   ],
   declarations: [
     AppComponent,
