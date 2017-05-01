@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+import { Router } from '@angular/router';
 import { Question } from './Question';
 import { QuestionService } from './question.service';
 
@@ -19,7 +20,8 @@ export class QuestionComponent {
 
   constructor (
     private http: Http,
-    private _dataService: QuestionService
+    private _dataService: QuestionService,
+    private router: Router,
   ) {}
 
   model = new Question(1, 'Enter your question details here', 
@@ -35,6 +37,7 @@ export class QuestionComponent {
             .subscribe(() => this.model,
                 error => console.log(error),
                 () => console.log('Get all Items complete'));
+    this.router.navigateByUrl('/team');
   }
 
   // TODO: Remove this when we're done
