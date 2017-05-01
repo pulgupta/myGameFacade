@@ -8,6 +8,7 @@ import { AppComponent }   from './app.component';
 import { QuestionComponent }   from './question.component';
 import { TeamComponent } from './team.component';
 import { QuestionService } from './question.service';
+import { TeamService } from './team.service';
 import { Configuration } from './configuration';
 
 const appRoutes: Routes = [
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
   ],
   providers: [ 
     QuestionService,
-    Configuration 
+    Configuration,
+    TeamService,
   ],
   declarations: [
     AppComponent,

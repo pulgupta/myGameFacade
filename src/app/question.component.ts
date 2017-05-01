@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -15,11 +14,8 @@ import { QuestionService } from './question.service';
   templateUrl: './question.component.html'
 })
 export class QuestionComponent {
-  
-  private questionAPI = 'http://localhost:8080/question';  // URL to web API
 
   constructor (
-    private http: Http,
     private _dataService: QuestionService,
     private router: Router,
   ) {}
