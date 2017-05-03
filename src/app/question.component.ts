@@ -20,7 +20,7 @@ export class QuestionComponent {
     private router: Router,
   ) {}
 
-  model = new Question(1, 'Enter your question details here', 
+  model = new Question('', 'Enter your question details here', 
     'Enter coma seperated option',null,'', 1, 1);
 
   submitted = false;
@@ -33,10 +33,11 @@ export class QuestionComponent {
             .subscribe(() => this.model,
                 error => console.log(error),
                 () => console.log('Get all Items complete'));
-    this.router.navigateByUrl('/team');
+    this.router.navigateByUrl('/team?questionId='+this.model.questionId);
+    console.log(this.diagnostic());
   }
 
   // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model);}
+  diagnostic() { return JSON.stringify(this.model);}
 
 }

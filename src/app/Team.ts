@@ -5,6 +5,7 @@ export class Team {
         public teamId: string,
         public teamName: string,
         public teammatesFull: string,
-        public teammates: string[]
+        public teammates: string[],
+        public questionIds: string[]
     ){}
 }

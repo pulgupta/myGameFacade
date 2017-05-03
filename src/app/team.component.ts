@@ -1,19 +1,32 @@
 import { Component } from '@angular/core';
 import { Team } from './Team';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+
 import { TeamService } from './team.service';
 
 @Component({
   selector: 'team',
-  templateUrl: './team.component.html'
+  templateUrl: './team.component.html',
 })
 export class TeamComponent {
   
+  private model: Team;
+  
   constructor (
     private _dataService: TeamService,
+    private activatedRoute: ActivatedRoute,
   ) {}
 
-  model = new Team('', 'Enter team name', 
-    'Enter coma team members',null);
+  ngOnInit() {
+    // subscribe to router event
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+        let questionId = params['questionId'];
+        var idsArray = [ questionId ];
+        this.model = new Team('', 'Enter team name', 
+          'Enter coma team members',null, idsArray);
+        console.log('This is query param ' + this.model.questionIds);
+      });
+  }
 
   submitted = false;
 

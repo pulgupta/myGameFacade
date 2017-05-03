@@ -2,7 +2,7 @@
 //Each question will be linked to the voteRecord which will contain the vote patterns
 export class Question {
     constructor (
-        public questionId: number,
+        public questionId: string,
         public question: string,
         public optionsFull: string,
         public options: string[],
