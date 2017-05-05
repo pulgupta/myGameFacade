@@ -28,6 +28,13 @@ export class QuestionService {
             .catch(this.handleError);
     }
 
+    public getQuestion = (questionId: string): Observable<Question> => {
+        var url = this.actionUrl + questionId;
+        return this._http.post(url, { headers: this.headers })
+            .map((response: Response) => <Question>response.json())
+            .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
