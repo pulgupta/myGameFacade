@@ -24,20 +24,20 @@ export class QuestionComponent {
     'Enter coma seperated option',null,'', 1, 1);
 
   submitted = false;
+  uid: string;
 
   onSubmit() { this.submitted = true; 
     console.log('form submitted. We got the data. ');  
-    console.log(this.model.question);
-    console.log(this.model.optionsFull); //-> We are getting the updated data from the form here
     this._dataService.saveQuestion(this.model)
-            .subscribe(() => this.model,
-                error => console.log(error),
-                () => console.log('Get all Items complete'));
-    this.router.navigateByUrl('/team?questionId='+this.model.questionId);
-    console.log(this.diagnostic());
+            .subscribe((data: Question) => 
+              this.setmodel(data),
+              error => console.log(error),
+              () => console.log('Get all Items complete'));
   }
 
-  // TODO: Remove this when we're done
-  diagnostic() { return JSON.stringify(this.model);}
-
+  setmodel(data: Question){
+    this.uid = data.questionId;
+    console.log('inside setmodel');
+    this.router.navigateByUrl('/team?questionId='+this.uid);
+  } 
 }
