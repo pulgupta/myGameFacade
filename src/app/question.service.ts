@@ -29,8 +29,8 @@ export class QuestionService {
     }
 
     public getQuestion = (questionId: string): Observable<Question> => {
-        var url = this.actionUrl + questionId;
-        return this._http.post(url, { headers: this.headers })
+        var url = this.actionUrl + '/' + questionId;
+        return this._http.get(url, { headers: this.headers })
             .map((response: Response) => <Question>response.json())
             .catch(this.handleError);
     }

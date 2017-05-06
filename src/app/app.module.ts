@@ -10,10 +10,12 @@ import { TeamComponent } from './team.component';
 import { QuestionService } from './question.service';
 import { TeamService } from './team.service';
 import { Configuration } from './configuration';
+import { ConfirmComponent } from './confirm.component'
 
 const appRoutes: Routes = [
   { path: 'question', component: QuestionComponent },
-  { path: 'team',      component: TeamComponent }
+  { path: 'team',      component: TeamComponent },
+  { path: 'confirm', component: ConfirmComponent }
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     QuestionComponent,
-    TeamComponent
+    TeamComponent,
+    ConfirmComponent
   ],
   bootstrap: [ AppComponent ] 
 })

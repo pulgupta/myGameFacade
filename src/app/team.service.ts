@@ -29,7 +29,7 @@ export class TeamService {
     }
 
     public getTeam = (id:String): Observable<Team> => {
-        var geturl = this.actionUrl+id;
+        var geturl = this.actionUrl+'/'+id;
         return this._http.get(geturl, {headers: this.headers})
             .map((response: Response) => <Team>response.json())
             .catch(this.handleError);

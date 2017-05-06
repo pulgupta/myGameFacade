@@ -1,0 +1,59 @@
+<br/>
+
+<div class="container">
+    <div *ngIf="isQuestionAvailable">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2">Question Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Question</td>
+                    <td>{{ question.question }}</td>
+                </tr>
+                <tr>
+                    <td>Choices</td>
+                    <td>{{ question.optionsFull }}</td>
+                </tr>
+                <tr>
+                    <td>Tags</td>
+                    <td>{{ question.tags }}</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>{{ question.date }}</td>
+                </tr>
+                <tr>
+                    <td>Created By</td>
+                    <td>{{ question.ownerId }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="isTeamAvailable">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="2">Team Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Team Name</td>
+                    <td>{{ team.teamName }}</td>
+                </tr>
+                <tr>
+                    <td>Teammates</td>
+                    <td>{{ team.teammatesFull }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
+    <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
+      <br/>
+      <button type="submit" class="btn btn-success">Confirm</button>
+    </form>
+</div>
