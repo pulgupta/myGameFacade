@@ -70,6 +70,12 @@ export class ConfirmComponent {
 
   onSubmit() { this.submitted = true; 
     console.log('form submitted. We got the data. ');
+    this.question.ownerId = this.team.teamId;
+    //update and link the question with the owner id that is the team id 
+    this._QuestionService.updateQuestion(this.question)
+      .subscribe((data: Question) => this.question=data,
+              error => console.log(error),
+              () => console.log('Get all Items complete'));
   }
 
 }

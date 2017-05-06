@@ -28,9 +28,23 @@ export class QuestionService {
             .catch(this.handleError);
     }
 
+    public updateQuestion = (question: Question): Observable<Question> => {
+
+        return this._http.put(this.actionUrl+'/'+question.questionId, question, { headers: this.headers })
+            .map((response: Response) => <Question>response.json())
+            .catch(this.handleError);
+    }
+
     public getQuestion = (questionId: string): Observable<Question> => {
         var url = this.actionUrl + '/' + questionId;
         return this._http.get(url, { headers: this.headers })
+            .map((response: Response) => <Question>response.json())
+            .catch(this.handleError);
+    }
+
+    public addVote = (questionId: string, option: string): Observable<Question> => {
+
+        return this._http.put(this.actionUrl+'/'+ questionId+'?'+option, { headers: this.headers })
             .map((response: Response) => <Question>response.json())
             .catch(this.handleError);
     }

@@ -43,7 +43,6 @@ export class ConfirmComponent {
     // subscribe to router event and the the query params
     this.activatedRoute.queryParams.subscribe((params: Params) => {
         this.questionId = params['questionId'];
-        this.teamId = params['teamId'];
       });
 
     //Now call the get services on the page load
@@ -52,16 +51,17 @@ export class ConfirmComponent {
               error => console.log(error),
               () => console.log('Get all Items complete'));
 
-    this._TeamService.getTeam(this.teamId)
-      .subscribe((data: Team) => this.setTeam(data),
-              error => console.log(error),
-              () => console.log('Get all Items complete'));
 
   }
 
   setQuestion(data: Question) {
     this.question=data;
     this.isQuestionAvailable=true;
+    this._TeamService.getTeam(this.question.ownerId)
+      .subscribe((data: Team) => this.setTeam(data),
+      error => console.log(error),
+      () => console.log('Get all Items complete'));
+
   }
   setTeam(data: Team) {
     this.team=data;
@@ -70,6 +70,12 @@ export class ConfirmComponent {
 
   onSubmit() { this.submitted = true; 
     console.log('form submitted. We got the data. ');
+    
+    //submit the vote
+    this._QuestionService.addVote(this.question.questionId, '')
+      .subscribe((data: Question) => this.question=data,
+      error => console.log(error),
+      () => console.log('Get all Items complete'));
   }
 
 }

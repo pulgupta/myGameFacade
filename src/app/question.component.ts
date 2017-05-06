@@ -29,8 +29,7 @@ export class QuestionComponent {
   onSubmit() { this.submitted = true; 
     console.log('form submitted. We got the data. ');  
     this._dataService.saveQuestion(this.model)
-            .subscribe((data: Question) => 
-              this.setmodel(data),
+            .subscribe((data: Question) => this.setmodel(data),
               error => console.log(error),
               () => console.log('Get all Items complete'));
   }
