@@ -8,7 +8,7 @@ export class Question {
         public options: string[],
         public tags: string,
         public date: number,
-        public ownerId: number //This will be the teamId to which this question is assigned.
+        public ownerId: string //This will be the teamId to which this question is assigned.
         //^^^^ we can keep the name as teamId also but we may need sometimes when the owner is not a team
     ){}
 }
