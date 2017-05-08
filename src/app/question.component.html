@@ -1,23 +1,20 @@
-
 <br/>
 
 <div class="container">
     <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
     <form (ngSubmit)="onSubmit()" #questionForm="ngForm">
-      <div class="form-group">
-        <label for="question">Enter Your Poll Heading. It can be a small description about your Poll</label>
+        <div class="form-group">
+            <label for="question">Enter Your Poll Heading. It can be a small description about your Poll</label>
+            <br/>
+            <textarea rows="8" cols="50" class="form-control" id="question" required [(ngModel)]="model.question" name="question"></textarea>
+        </div>
         <br/>
-        <textarea rows="8" cols="50" class="form-control" id="question" required
-        [(ngModel)]="model.question" name="question"></textarea>
-      </div>
-      <br/>
-      <div class="addcontend">
-        <label for="optionsFull">Enter Options(comma seperated)</label><br/>
-        <input type="text" class="form-control" id="optionsFull"
-        [(ngModel)]="model.optionsFull" name="optionsFull">
-        
-      </div>
-      <br/>
-      <button type="submit" class="btn btn-success">Submit</button>
+        <div class="addcontend">
+            <label for="optionsFull">Enter Options(comma seperated)</label><br/>
+            <input type="text" class="form-control" id="optionsFull" [(ngModel)]="model.optionsFull" name="optionsFull">
+
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>

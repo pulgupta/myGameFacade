@@ -26,15 +26,13 @@ export class ConfirmComponent {
   team: Team;
   questionId: string;
   teamId: string;
-  isQuestionAvailable:boolean = false;
-  isTeamAvailable:boolean = false;
+  isQuestionAvailable: boolean = false;
+  isTeamAvailable: boolean = false;
   constructor (
-    
     private _QuestionService: QuestionService,
     private _TeamService: TeamService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    
   ) {}
 
   ngOnInit() {
@@ -46,7 +44,7 @@ export class ConfirmComponent {
         this.teamId = params['teamId'];
       });
 
-    //Now call the get services on the page load
+    // Now call the get services on the page load
     this._QuestionService.getQuestion(this.questionId)
       .subscribe((data: Question) => this.setQuestion(data),
               error => console.log(error),
@@ -71,7 +69,7 @@ export class ConfirmComponent {
   onSubmit() { this.submitted = true; 
     console.log('form submitted. We got the data. ');
     this.question.ownerId = this.team.teamId;
-    //update and link the question with the owner id that is the team id 
+    // update and link the question with the owner id that is the team id 
     this._QuestionService.updateQuestion(this.question)
       .subscribe((data: Question) => this.question=data,
               error => console.log(error),

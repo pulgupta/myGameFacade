@@ -26,17 +26,17 @@ export class VoteComponent {
   team: Team;
   questionId: string;
   teamId: string;
-  isQuestionAvailable:boolean = false;
-  isTeamAvailable:boolean = false;
-  options:string[];
+  isQuestionAvailable: boolean = false;
+  isTeamAvailable: boolean = false;
+  options: string[];
 
   constructor (
-    
+
     private _QuestionService: QuestionService,
     private _TeamService: TeamService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    
+
   ) {}
 
   ngOnInit() {
@@ -47,7 +47,7 @@ export class VoteComponent {
         this.questionId = params['questionId'];
       });
 
-    //Now call the get services on the page load
+    // Now call the get services on the page load
     this._QuestionService.getQuestion(this.questionId)
       .subscribe((data: Question) => this.setQuestion(data),
         error => console.log(error),
@@ -57,7 +57,10 @@ export class VoteComponent {
   setQuestion(data: Question) {
     this.question=data;
     this.options=this.question.options;
-    this.isQuestionAvailable=true;
+    console.log('printing array')
+    for (var item of this.options) {
+      console.log(item);
+    }
     this._TeamService.getTeam(this.question.ownerId)
       .subscribe((data: Team) => this.setTeam(data),
       error => console.log(error),
@@ -65,21 +68,34 @@ export class VoteComponent {
 
   }
   setTeam(data: Team) {
-    this.team=data;
-    this.isTeamAvailable=true;
+    this.team = data;
+    this.isTeamAvailable = true;
 
     // Now we have both the team and the question
-    //We will not split the team and question array to segrigate the items
+    // We will not split the team and question array to segrigate the items
   }
 
   onSubmit() { this.submitted = true; 
     console.log('form submitted. We got the data. ');
-    
-    //submit the vote
+
+    // submit the vote
     this._QuestionService.addVote(this.question.questionId, '')
       .subscribe((data: Question) => this.question=data,
       error => console.log(error),
       () => console.log('Get all Items complete'));
+    this.isTeamAvailable = false;
+    this.isQuestionAvailable=false;
+  }
+
+  getTeammate(name: string){
+    console.log('in get teammate ' + name);
+    this.isTeamAvailable = false;
+    this.isQuestionAvailable=true;
+
+  }
+
+  getOption(choice: string) {
+    console.log('in get option ' + choice);
   }
 
 }

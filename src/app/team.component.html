@@ -3,19 +3,17 @@
 <div class="container">
     <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
     <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
-      <div class="form-group">
-        <label for="teamName">Enter Your team name</label>
+        <div class="form-group">
+            <label for="teamName">Enter Your team name</label>
+            <br/>
+            <input type="text" class="form-control" id="teamName" [(ngModel)]="model.teamName" name="teamName">
+        </div>
         <br/>
-        <input type="text" class="form-control" id="teamName"
-        [(ngModel)]="model.teamName" name="teamName">
-      </div>
-      <br/>
-      <div class="addcontend">
-        <label for="optionsFull">Enter members(comma seperated)</label><br/>
-        <input type="text" class="form-control" id="teammatesFull"
-        [(ngModel)]="model.teammatesFull" name="teammatesFull">
-      </div>
-      <br/>
-      <button type="submit" class="btn btn-success">Submit</button>
+        <div class="addcontend">
+            <label for="optionsFull">Enter members(comma seperated)</label><br/>
+            <input type="text" class="form-control" id="teammatesFull" [(ngModel)]="model.teammatesFull" name="teammatesFull">
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>
