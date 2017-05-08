@@ -28,6 +28,8 @@ export class VoteComponent {
   teamId: string;
   isQuestionAvailable:boolean = false;
   isTeamAvailable:boolean = false;
+  options:string[];
+
   constructor (
     
     private _QuestionService: QuestionService,
@@ -48,14 +50,13 @@ export class VoteComponent {
     //Now call the get services on the page load
     this._QuestionService.getQuestion(this.questionId)
       .subscribe((data: Question) => this.setQuestion(data),
-              error => console.log(error),
-              () => console.log('Get all Items complete'));
-
-
+        error => console.log(error),
+        () => console.log('Get all Items complete'));
   }
 
   setQuestion(data: Question) {
     this.question=data;
+    this.options=this.question.options;
     this.isQuestionAvailable=true;
     this._TeamService.getTeam(this.question.ownerId)
       .subscribe((data: Team) => this.setTeam(data),

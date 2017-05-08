@@ -13,21 +13,9 @@
                     <td>Question</td>
                     <td>{{ question.question }}</td>
                 </tr>
-                <tr>
-                    <td>Choices</td>
-                    <td>{{ question.optionsFull }}</td>
-                </tr>
-                <tr>
-                    <td>Tags</td>
-                    <td>{{ question.tags }}</td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>{{ question.date }}</td>
-                </tr>
-                <tr>
-                    <td>Created By</td>
-                    <td>{{ question.ownerId }}</td>
+                <tr *ngFor="let choices of options; let i=index">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ choices }}</td>
                 </tr>
             </tbody>
         </table>
@@ -53,7 +41,7 @@
     </div>
     <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
     <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
-      <br/>
-      <button type="submit" class="btn btn-success">Submit Your Vote</button>
+        <br/>
+        <button type="submit" class="btn btn-success">Submit Your Vote</button>
     </form>
 </div>
