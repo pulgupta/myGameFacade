@@ -11,14 +11,14 @@ import { Team } from './Team';
 import { TeamService } from './team.service';
 
 @Component({
-  selector: 'confirm',
+  selector: 'vote',
   providers: [
     QuestionService, 
     TeamService
   ],
-  templateUrl: './confirm.component.html'
+  templateUrl: './vote.component.html'
 })
-export class ConfirmComponent {
+export class VoteComponent {
 
   submitted = false;
   uid: string;
@@ -66,6 +66,9 @@ export class ConfirmComponent {
   setTeam(data: Team) {
     this.team=data;
     this.isTeamAvailable=true;
+
+    // Now we have both the team and the question
+    //We will not split the team and question array to segrigate the items
   }
 
   onSubmit() { this.submitted = true; 

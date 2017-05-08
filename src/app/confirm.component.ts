@@ -76,6 +76,7 @@ export class ConfirmComponent {
       .subscribe((data: Question) => this.question=data,
               error => console.log(error),
               () => console.log('Get all Items complete'));
+    this.router.navigateByUrl('/vote?questionId=' + this.questionId);
   }
 
 }

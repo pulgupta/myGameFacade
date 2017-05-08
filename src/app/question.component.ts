@@ -21,7 +21,7 @@ export class QuestionComponent {
   ) {}
 
   model = new Question('', 'Enter your question details here', 
-    'Enter coma seperated option',null,'', 1, 1);
+    'Enter coma seperated option',null,'', 1, '');
 
   submitted = false;
   uid: string;
