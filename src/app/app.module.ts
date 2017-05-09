@@ -11,13 +11,15 @@ import { QuestionService } from './question.service';
 import { TeamService } from './team.service';
 import { Configuration } from './configuration';
 import { ConfirmComponent } from './confirm.component';
-import { VoteComponent } from './vote.component'
+import { VoteComponent } from './vote.component';
+import { ThanksComponent } from './thanks.component';
 
 const appRoutes: Routes = [
   { path: 'question', component: QuestionComponent },
   { path: 'team',      component: TeamComponent },
   { path: 'confirm', component: ConfirmComponent },
-  { path: 'vote', component: VoteComponent }
+  { path: 'vote', component: VoteComponent },
+  { path: 'thanks', component: ThanksComponent }
 ];
 
 @NgModule({
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ 
+  providers: [
     QuestionService,
     Configuration,
     TeamService,
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     QuestionComponent,
     TeamComponent,
     ConfirmComponent,
-    VoteComponent
+    VoteComponent,
+    ThanksComponent
   ],
   bootstrap: [ AppComponent ] 
 })

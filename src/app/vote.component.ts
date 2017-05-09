@@ -29,6 +29,8 @@ export class VoteComponent {
   isQuestionAvailable: boolean = false;
   isTeamAvailable: boolean = false;
   options: string[];
+  teamMate: string;
+  option: string;
 
   constructor (
 
@@ -83,18 +85,19 @@ export class VoteComponent {
       .subscribe((data: Question) => this.question=data,
       error => console.log(error),
       () => console.log('Get all Items complete'));
-    this.isTeamAvailable = false;
-    this.isQuestionAvailable=false;
+      this.router.navigateByUrl('/thanks');
+
   }
 
   getTeammate(name: string){
+    this.teamMate = name;
     console.log('in get teammate ' + name);
     this.isTeamAvailable = false;
-    this.isQuestionAvailable=true;
-
+    this.isQuestionAvailable = true;
   }
 
   getOption(choice: string) {
+    this.option = choice;
     console.log('in get option ' + choice);
   }
 
