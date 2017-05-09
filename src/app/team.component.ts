@@ -51,4 +51,10 @@ export class TeamComponent {
     this.router.navigateByUrl('/confirm?questionId=' + this.questionId + '&teamId=' + uid);
   } 
 
+  clear() {
+    this.model.teamName = '';
+  }
+  clearMates() {
+    this.model.teammatesFull = '';
+  }
 }

@@ -6,12 +6,12 @@
         <div class="form-group">
             <label for="teamName">Enter Your team name</label>
             <br/>
-            <input type="text" class="form-control" id="teamName" [(ngModel)]="model.teamName" name="teamName">
+            <input type="text" class="form-control" id="teamName" [(ngModel)]="model.teamName" name="teamName" (click)="clear()">
         </div>
         <br/>
         <div class="addcontend">
             <label for="optionsFull">Enter members(comma seperated)</label><br/>
-            <input type="text" class="form-control" id="teammatesFull" [(ngModel)]="model.teammatesFull" name="teammatesFull">
+            <input type="text" class="form-control" id="teammatesFull" [(ngModel)]="model.teammatesFull" name="teammatesFull" (click)="clearMates()">
         </div>
         <br/>
         <button type="submit" class="btn btn-success">Submit</button>

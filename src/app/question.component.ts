@@ -15,30 +15,29 @@ import { QuestionService } from './question.service';
 })
 export class QuestionComponent {
 
+  model = new Question('', 'Enter your question details here', 
+    'Enter comma separated option', null, '', 1, '');
+  submitted = false;
+  uid: string;
+
   constructor (
     private _dataService: QuestionService,
     private router: Router,
   ) {}
 
-  model = new Question('', 'Enter your question details here', 
-    'Enter coma seperated option',null,'', 1, '');
-
-  submitted = false;
-  uid: string;
-
   onSubmit() { this.submitted = true; 
-    console.log('form submitted. We got the data. ');  
+    console.log('form submitted. We got the data. ');
     this._dataService.saveQuestion(this.model)
-            .subscribe((data: Question) => this.setmodel(data),
+            .subscribe((data: Question) => this.setModel(data),
               error => console.log(error),
               () => console.log('Get all Items complete'));
   }
 
-  setmodel(data: Question){
+  setModel(data: Question){
     this.uid = data.questionId;
-    console.log('inside setmodel');
-    this.router.navigateByUrl('/team?questionId='+this.uid);
-  } 
+    console.log('inside setModel');
+    this.router.navigateByUrl('/team?questionId=' + this.uid);
+  }
 
   clear() {
     this.model.question = '';

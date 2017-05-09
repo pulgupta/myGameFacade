@@ -13,7 +13,7 @@ import { TeamService } from './team.service';
 @Component({
   selector: 'vote',
   providers: [
-    QuestionService, 
+    QuestionService,
     TeamService
   ],
   templateUrl: './vote.component.html'
@@ -64,25 +64,24 @@ export class VoteComponent {
       console.log(item);
     }
     this._TeamService.getTeam(this.question.ownerId)
-      .subscribe((data: Team) => this.setTeam(data),
+      .subscribe((_data: Team) => this.setTeam(_data),
       error => console.log(error),
       () => console.log('Get all Items complete'));
 
   }
+
   setTeam(data: Team) {
     this.team = data;
     this.isTeamAvailable = true;
-
     // Now we have both the team and the question
-    // We will not split the team and question array to segrigate the items
   }
 
-  onSubmit() { this.submitted = true; 
+  onSubmit() { this.submitted = true;
     console.log('form submitted. We got the data. ');
 
     // submit the vote
     this._QuestionService.addVote(this.question.questionId, '')
-      .subscribe((data: Question) => this.question=data,
+      .subscribe((data: Question) => this.question = data,
       error => console.log(error),
       () => console.log('Get all Items complete'));
       this.router.navigateByUrl('/thanks');
