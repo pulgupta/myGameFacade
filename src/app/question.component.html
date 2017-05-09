@@ -7,12 +7,12 @@
             <div class="form-group">
                 <label for="question">Enter Your Poll Heading. It can be a small description about your Poll</label>
                 <br/>
-                <textarea rows="8" cols="50" class="form-control" id="question" required [(ngModel)]="model.question" name="question"></textarea>
+                <textarea rows="8" cols="50" class="form-control" id="question" required [(ngModel)]="model.question" name="question" (click)="clear()"></textarea>
             </div>
             <br/>
             <div class="addcontend">
                 <label for="optionsFull">Enter Options(comma seperated)</label><br/>
-                <input type="text" class="form-control" id="optionsFull" [(ngModel)]="model.optionsFull" name="optionsFull">
+                <input type="text" class="form-control" id="optionsFull" [(ngModel)]="model.optionsFull" name="optionsFull" (click)="clearOption()">
 
             </div>
             <br/>

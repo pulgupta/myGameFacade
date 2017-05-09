@@ -39,4 +39,11 @@ export class QuestionComponent {
     console.log('inside setmodel');
     this.router.navigateByUrl('/team?questionId='+this.uid);
   } 
+
+  clear() {
+    this.model.question = '';
+  }
+  clearOption() {
+    this.model.optionsFull = '';
+  }
 }
