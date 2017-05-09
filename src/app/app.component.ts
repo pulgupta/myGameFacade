@@ -3,13 +3,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <div class="text-center">
-      <h1>{{title}}</h1>
-      <nav>
-        <a routerLink="/question" routerLinkActive="active">Enter Question Details</a>
-        <a routerLink="/team" routerLinkActive="active">Enter Team Details</a>
+    <div class="text-center component">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <a class="navbar-brand" href="#">KLGS</a>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a routerLink="/question" routerLinkActive="active">POST A NEW POLL
+              <span class="sr-only">(current)</span></a></li>
+            <li></li>
+          </ul>
+        </div>
       </nav>
-      </div>
+      <h1>{{title}}</h1>
+    </div>
       <router-outlet></router-outlet>
   `
 })

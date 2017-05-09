@@ -1,47 +1,49 @@
-<br/>
-
 <div class="container">
-    <h2>Select your user name and then cast your vote</h2>
-    <div *ngIf="isTeamAvailable">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th colspan="2">Team Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ team.teamName }}</td>
-                </tr>
-                <tr *ngFor="let choice of team.teammates">
-                    <td><button type="button" class="btn btn-primary" id="{{ choice }}" (click)=getTeammate(choice)>{{ choice }}</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div *ngIf="isQuestionAvailable">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th colspan="2">Question Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ question.question }}</td>
-                </tr>
-                <tr *ngFor="let choice of options">
-                    <td><button type="button" class="btn btn-danger" id="{{ choice }}" (click)=getOption(choice)>{{ choice }}</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <br/>
 
-    <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
-    <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
-        <br/>
-        <div *ngIf="isQuestionAvailable">
-            <button type="submit" class="btn btn-success">Submit Your Vote</button>
+    <div class="container">
+        <h2>Select your user name and then cast your vote</h2>
+        <div *ngIf="isTeamAvailable">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2">Team Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ team.teamName }}</td>
+                    </tr>
+                    <tr *ngFor="let choice of team.teammates">
+                        <td><button type="button" class="btn btn-primary" id="{{ choice }}" (click)=getTeammate(choice)>{{ choice }}</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </form>
+        <div *ngIf="isQuestionAvailable">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2">Question Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ question.question }}</td>
+                    </tr>
+                    <tr *ngFor="let choice of options">
+                        <td><button type="button" class="btn btn-danger" id="{{ choice }}" (click)=getOption(choice)>{{ choice }}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--here the ngSubmit is the most important thing which binds this form to its comtroller-->
+        <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
+            <br/>
+            <div *ngIf="isQuestionAvailable">
+                <button type="submit" class="btn btn-success">Submit Your Vote</button>
+            </div>
+        </form>
+    </div>
 </div>
