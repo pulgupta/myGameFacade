@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <div class="text-center component">
+  
+    <div class="text-center component" >
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <a class="navbar-brand" href="#">KLGS</a>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -14,7 +15,7 @@ import { Component } from '@angular/core';
           </ul>
         </div>
       </nav>
-      <h1>{{title}}</h1>
+      <br/><br/><br/><br/>
     </div>
       <router-outlet></router-outlet>
   `
